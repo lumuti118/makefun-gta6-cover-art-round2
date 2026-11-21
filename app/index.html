@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vice Cover Studio — GTA-style cover art maker</title>
+<meta name="description" content="Turn your photo and a caption into multi-panel GTA-style cover art, offline in your browser, exported as a PNG.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app"></div>
+<script type="module">
+import { initEditor } from './src/main.js';
+import { runShotScene, applyEditorScene } from './src/shots.js';
+
+if (!(await runShotScene())) {
+  const editor = await initEditor(document.querySelector('#app'));
+  applyEditorScene(editor);
+}
+</script>
+</body>
+</html>
